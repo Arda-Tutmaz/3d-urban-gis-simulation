@@ -3,9 +3,9 @@
 This project focuses on modeling and simulating 3D urban environments for cities like Gdańsk and Stockholm. It integrates geographic data processing with web-based 3D rendering to analyze spatial patterns and architectural layouts.
 
 ## 🚀 Key Features
-- **3D City Modeling:** Processed spatial data to render architectural structures and city landmarks.
-- **Interactive Web Interface:** Developed a dynamic frontend using CesiumJS and OpenLayers for seamless map navigation.
-- **Geospatial Data Analysis:** Utilized QGIS for data layering, styling, and geographic analysis.
+- **Dual-City 3D Environments:** Interactive 3D visualization for both Gdańsk and Stockholm.
+- **Blender Integration:** Custom-optimized architectural 3D models embedded via `.glb` format.
+- **Web 3D Rendering:** Rendered directly in the browser using CesiumJS and lightweight HTML/JS structures.
 
 ## 🛠️ Technologies & Tools Used
 - **GIS Software:** QGIS
