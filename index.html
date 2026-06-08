@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <title>Gdansk Simulation</title>
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.117/Build/Cesium/Cesium.js"></script>
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.117/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+  <style>
+      body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+      #cesiumContainer { width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <script>
+    Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhZjUyNzljNS1mOTNhLTQ3NjEtODZhOS0zYjRlM2MxYzdlMTkiLCJpZCI6NDI3NTY1LCJpc3MiOiJodHRwczovL2lvbi5jZXNpdW0uY29tIiwiYXVkIjoidW5kZWZpbmVkX2RlZmF1bHQiLCJpYXQiOjE3Nzc5OTkyODJ9.wA_HEmjC7lfPv61DVlDOB-G2QnZhnL4hnps2tVP5c9k';
+
+    const viewer = new Cesium.Viewer('cesiumContainer', {
+        terrain: Cesium.Terrain.fromWorldTerrain(),
+        shadows: true 
+    });
+
+    // Saat Ayarı: Tam olarak belirttiğin gibi 09:59:00 UTC (Sabah saati) yapıldı
+    viewer.clock.currentTime = Cesium.JulianDate.fromDate(new Date('2026-06-06T09:59:00Z'));
+    viewer.clock.shouldAnimate = false;
+
+    async function loadModel() {
+        const resource = await Cesium.IonResource.fromAssetId(4901754);
+        const modelEntity = viewer.entities.add({
+            position: Cesium.Cartesian3.fromDegrees(18.6532, 54.3498, 32),
+            model: { uri: resource, castShadows: true, receiveShadows: true }
+        });
+        viewer.zoomTo(modelEntity);
+    }
+    loadModel();
+  </script>
+</body>
+</html>
